@@ -14,7 +14,7 @@ def main(argv=sys.argv):
 
 
 def get_keynote_url():
-    r = requests.get(get_avs_url())
+    r = requests.get(get_avs_keynote_url())
 
     assert r.ok, r
 
@@ -27,7 +27,7 @@ def get_keynote_url():
 
 
 @functools.lru_cache()
-def get_avs_url():
+def get_avs_keynote_url():
     return "https://www.automatedvehiclessymposium.org/program/keynotes-plenaries"
 
 
