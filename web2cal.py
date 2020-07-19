@@ -31,5 +31,10 @@ def get_avs_keynote_url():
     return "https://www.automatedvehiclessymposium.org/program/keynotes-plenaries"
 
 
+@functools.lru_cache()
+def get_avs_breakout_url():
+    return "https://www.automatedvehiclessymposium.org/program/breakouts"
+
+
 if "__main__" == __name__:
     main(sys.argv)
