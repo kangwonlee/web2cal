@@ -11,10 +11,15 @@ import requests
 def main(argv=sys.argv):
     url = get_keynote_url()
     print(url)
+    print(get_breakouts_url())
 
 
-def get_keynote_url():
-    r = requests.get(get_avs_keynote_url())
+def get_keynote_url() -> str:
+    return get_url(get_avs_keynote_url())
+
+
+def get_url(avs_url:str) -> str:
+    r = requests.get(avs_url)
 
     assert r.ok, r
 
@@ -26,13 +31,17 @@ def get_keynote_url():
     return url
 
 
+def get_breakouts_url() -> str:
+    return get_url(get_avs_breakout_url())
+
+
 @functools.lru_cache()
-def get_avs_keynote_url():
+def get_avs_keynote_url() -> str:
     return "https://www.automatedvehiclessymposium.org/program/keynotes-plenaries"
 
 
 @functools.lru_cache()
-def get_avs_breakout_url():
+def get_avs_breakout_url() -> str:
     return "https://www.automatedvehiclessymposium.org/program/breakouts"
 
 
