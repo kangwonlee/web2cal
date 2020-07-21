@@ -13,6 +13,9 @@ def main(argv=sys.argv):
     print(url)
     print(get_breakouts_url())
 
+    table_list = pd.read_html(get_keynote_url())
+    pprint.pprint(table_list)
+
 
 @functools.lru_cache()
 def get_keynote_url() -> str:
