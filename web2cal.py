@@ -14,10 +14,12 @@ def main(argv=sys.argv):
     print(get_breakouts_url())
 
 
+@functools.lru_cache()
 def get_keynote_url() -> str:
     return get_url(get_avs_keynote_url())
 
 
+@functools.lru_cache()
 def get_url(avs_url:str) -> str:
     r = requests.get(avs_url)
 
