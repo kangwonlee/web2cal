@@ -11,6 +11,9 @@ def main(argv=sys.argv):
         for component in cal.walk():
             print(component.name)
 
+            if component.name.endswith('EVENT'):
+                print(component['SUMMARY'].title())
+
 
 if "__main__" == __name__:
     main(sys.argv)
